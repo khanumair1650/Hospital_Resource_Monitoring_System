@@ -1,0 +1,6 @@
+{
+	"appId": "com.hiringtek.login",
+	"appName": "tabs",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="primary" class="center">Admin LogIn</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-avatar class="avatar" >
+          <img   src="https://propami.com/assets/corals/images/avatars/avatar_4.png">
+        </ion-avatar>
+        <ion-item>
+          <ion-label position="floating" >Username</ion-label>
+          <ion-input [(ngModel)]="email" type ="email" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Password</ion-label>
+          <ion-input [(ngModel)]="password" type ="password"></ion-input>
+        </ion-item>
+        <br>
+        <ion-button  expand="block" fill="outline" (click)="login()" >LOG IN</ion-button>
+        <p class="center" *ngIf="isloading"><ion-spinner></ion-spinner></p>
+        
+        <ion-button  href="/login" size="full" fill="clear" ><strong >User Login</strong></ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

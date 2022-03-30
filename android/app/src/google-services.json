@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "724908073542",
+    "project_id": "login-auth-2bbef",
+    "storage_bucket": "login-auth-2bbef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724908073542:android:7a11092f1a0ca8ba626047",
+        "android_client_info": {
+          "package_name": "com.hiringtek.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724908073542-3s8t2tstus7ctt7ilgnms17e70rocbet.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hiringtek.login",
+            "certificate_hash": "afea7a86e07c32ff6dfcd27b155f7ea8c0015778"
+          }
+        },
+        {
+          "client_id": "724908073542-08e8nnu5n99cpmp7l3qk8ksd54qc39gn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHJaXefG7KFBHZTBTSOnPRfen2H088EbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724908073542-08e8nnu5n99cpmp7l3qk8ksd54qc39gn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
