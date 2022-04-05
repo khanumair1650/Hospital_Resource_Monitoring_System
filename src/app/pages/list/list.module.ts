@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AdmingreetPageRoutingModule } from './admingreet-routing.module';
+import { ListPageRoutingModule } from './list-routing.module';
 
-import { AdmingreetPage } from './admingreet.page';
+import { ListPage } from './list.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AdmingreetPageRoutingModule
+    ListPageRoutingModule
   ],
-  declarations: [AdmingreetPage]
+  declarations: [ListPage]
 })
-export class AdmingreetPageModule {}
+export class ListPageModule {}

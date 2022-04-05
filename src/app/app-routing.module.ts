@@ -23,11 +23,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/adminlog/adminlog.module').then( m => m.AdminlogPageModule)
   },
   {
-    path: 'admingreet',
-    loadChildren: () => import('./pages/admingreet/admingreet.module').then( m => m.AdmingreetPageModule)
+    path: 'create',
+    loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'update',
+    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
   }
  
-  
   
 ];
 @NgModule({

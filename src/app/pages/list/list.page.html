@@ -1,11 +1,12 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title class="center" color="primary">Welcome</ion-title>
+    <ion-title color="danger">Hospital List</ion-title>
     <ion-button slot ="end" size="small" href="#">Log-Out</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <ion-card-content *ngFor="let hospital of Hospitals" > 
     <ion-card-header>
       <ion-card-subtitle>{{hospital.description}}</ion-card-subtitle>
@@ -36,7 +37,32 @@
       <ion-icon name="call" slot="start"></ion-icon>
       <ion-label color="secondary" >{{hospital.contactno}}</ion-label>
     </ion-item>
+    <div class="center">
+      <ion-button shape="round" ion-button clear [routerLink]="['/update/']">
+        <ion-icon name="create" style="zoom:1"></ion-icon>
+      </ion-button>
+      <ion-button shape="round" ion-button clear (click)="removeHospital(hospital, i)">
+        <ion-icon name="trash" style="zoom:1"></ion-icon>
+      </ion-button>
+    </div>
 </ion-card-content>
 
-</ion-content>
 
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar>
+        <ion-tab-button  routerLinkActive="tab-selected" routerLink="/list" tab="list">
+          <ion-icon name="list-outline"></ion-icon>
+          <ion-label>Hospitals List</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button routerLinkActive="tab-selected" routerLink="/create" tab="create">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Add Hospital</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

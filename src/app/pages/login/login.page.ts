@@ -7,8 +7,8 @@ import { AlertController } from '@ionic/angular';
 
 //extra Added links for Google sign in
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+
 
 
 @Component({
@@ -27,8 +27,7 @@ export class LoginPage implements OnInit {
   constructor(private http:HttpClient,
      private router: Router,
      private alertController: AlertController,
-     public googleplus: GooglePlus,
-     public afAuth: AngularFireAuth
+     public googleplus: GooglePlus
      ) {
       
       
@@ -55,7 +54,7 @@ export class LoginPage implements OnInit {
    
   }
 
-  async presentAlert(header:string,message:string) {
+  async presentAlert(header:string, message:string) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: header,

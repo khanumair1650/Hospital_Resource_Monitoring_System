@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { UserCrudService } from '../../services/user-crud.service';
 
 @Component({
   selector: 'app-greet',
@@ -12,17 +12,11 @@ export class GreetPage implements OnInit {
   selectedService:any;
   hasVerifiedEmail: boolean;
   navCtrl: any;
+  Hospitals: any = [];
  
 
   
-  constructor(private router : Router,  public afAuth: AngularFireAuth) { 
-    this.afAuth.authState.subscribe(async user=>{
-      if(user){
-        setInterval(async ()=>{
-          this.hasVerifiedEmail = (await this.afAuth.currentUser).emailVerified;
-        },10000);
-      }
-    })
+  constructor(private router : Router, private userCrudService: UserCrudService )  { 
   }
 
   ngOnInit(): void {
@@ -38,9 +32,18 @@ export class GreetPage implements OnInit {
     console.log(this.selectedService)
   }
 
-  async sendVerificationEmail(){
-    (await this.afAuth.currentUser).sendEmailVerification();
+  ionViewDidEnter() {
+    this.userCrudService.getHospitals().subscribe((response) => {
+      this.Hospitals = response;
+    })
   }
-  
+  searchHospital(hospital, i) {
+      this.userCrudService.searchHospital(hospital.name)
+      .subscribe(() => {
+          this.Hospitals.splice(i, 1);
+          console.log('Hospital Founded!')
+        }
+      )
+  }
 
 }

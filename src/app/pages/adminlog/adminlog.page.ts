@@ -6,8 +6,7 @@ import { AlertController } from '@ionic/angular';
 
 //extra Added links for Google sign in
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 @Component({
   selector: 'app-adminlog',
   templateUrl: './adminlog.page.html',
@@ -21,8 +20,7 @@ export class AdminlogPage implements OnInit {
   constructor(private http:HttpClient,
     private router: Router,
     private alertController: AlertController,
-    public googleplus: GooglePlus,
-    public afAuth: AngularFireAuth
+    public googleplus: GooglePlus
     ) { }
 
   ngOnInit() {
@@ -37,7 +35,7 @@ export class AdminlogPage implements OnInit {
     .subscribe(res =>{
       this.isloading=false
       localStorage.setItem('Admin',JSON.stringify(res))
-      this.router.navigateByUrl('admingreet',{replaceUrl:true})
+      this.router.navigateByUrl('list',{replaceUrl:true})
     },error =>{
       this.isloading= false
       this.presentAlert('Login Failed',error.error.error)
