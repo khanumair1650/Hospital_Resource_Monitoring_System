@@ -14,6 +14,7 @@ import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
 import {AppRoutingModule} from './app-routing.module';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 export const firebaseConfig={
   apiKey: "AIzaSyD9exnMdHxtkkhk9CIh0kLxPeShzm5sEYw",
@@ -44,7 +45,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    Ng2SearchPipeModule 
     ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

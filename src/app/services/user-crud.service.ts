@@ -65,11 +65,11 @@ z
       );
   }
 
-  searchHospital(name): Observable<Hospital[]> {
-    return this.httpClient.get<Hospital[]>('http://localhost:3000/hospitals/search/' + name, this.httpOptions)
+  searchHospital(): Observable<Hospital[]> {
+    return this.httpClient.get<Hospital[]>('http://localhost:3000/hospitals/search/')
       .pipe(
-        tap(_ => console.log(`Hospital Founded: ${name}`)),
-        catchError(this.handleError<Hospital[]>('Search Hospital'))
+        tap(Hospitals => console.log('Hospital list received!')),
+        catchError(this.handleError<Hospital[]>('Get Hospital', []))
       );
   }
 

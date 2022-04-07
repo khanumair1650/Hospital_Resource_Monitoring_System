@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserCrudService } from '../../services/user-crud.service';
@@ -13,10 +14,15 @@ export class GreetPage implements OnInit {
   hasVerifiedEmail: boolean;
   navCtrl: any;
   Hospitals: any = [];
+  Filter: string;
  
 
   
-  constructor(private router : Router, private userCrudService: UserCrudService )  { 
+  constructor(private router : Router, private userCrudService: UserCrudService ,private httpClient: HttpClient)  {
+    this.userCrudService.searchHospital().subscribe(res => {
+      console.log(res)
+      this.Hospitals = res;
+    }); 
   }
 
   ngOnInit(): void {
@@ -37,13 +43,8 @@ export class GreetPage implements OnInit {
       this.Hospitals = response;
     })
   }
-  searchHospital(hospital, i) {
-      this.userCrudService.searchHospital(hospital.name)
-      .subscribe(() => {
-          this.Hospitals.splice(i, 1);
-          console.log('Hospital Founded!')
-        }
-      )
-  }
+  
+
+
 
 }
