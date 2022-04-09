@@ -6,8 +6,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar placeholder="Search" [(ngModel)]="Filter"  animated="true"></ion-searchbar>
-  
+
   <ion-card-content *ngFor="let hospital of Hospitals" > 
     <ion-card-header>
       <ion-card-subtitle>{{hospital.description}}</ion-card-subtitle>
