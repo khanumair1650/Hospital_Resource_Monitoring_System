@@ -7,6 +7,7 @@
 
 <ion-content [fullscreen]="true">
 
+<div *ngIf="showlist">
   <ion-card-content *ngFor="let hospital of Hospitals" > 
     <ion-card-header>
       <ion-card-subtitle>{{hospital.description}}</ion-card-subtitle>
@@ -38,6 +39,7 @@
       <ion-label color="secondary" >{{hospital.contactno}}</ion-label>
     </ion-item>
 </ion-card-content>
+</div>
 
 </ion-content>
 

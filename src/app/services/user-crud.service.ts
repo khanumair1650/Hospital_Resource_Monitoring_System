@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-export class Hospital {
+export interface Hospital {
   _id: number;
   description: String;
   name: String;
@@ -65,13 +65,13 @@ z
       );
   }
 
-  searchHospital(): Observable<Hospital[]> {
-    return this.httpClient.get<Hospital[]>('http://localhost:3000/hospitals/search/')
-      .pipe(
-        tap(Hospitals => console.log('Hospital list received!')),
-        catchError(this.handleError<Hospital[]>('Get Hospital', []))
-      );
-  }
+  public searchHospital(name):Observable<Hospital[]>{
+    return this.httpClient.get<Hospital[]>('http://localhost:3000/hospitals/search/'+ name,this.httpOptions)
+    .pipe(
+      tap(_ => console.log(`Hospital Found: ${name}`)),
+      catchError(this.handleError<Hospital[]>('Find Hospital'))
+    );
+}
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserCrudService } from '../../services/user-crud.service';
+import { AnyTxtRecord } from 'dns';
+import { response } from 'express';
+import { Hospital, UserCrudService } from '../../services/user-crud.service';
 
 @Component({
   selector: 'app-greet',
@@ -11,19 +13,13 @@ import { UserCrudService } from '../../services/user-crud.service';
 export class GreetPage implements OnInit {
 
   selectedService:any;
-  hasVerifiedEmail: boolean;
   navCtrl: any;
-  Hospitals: any = [];
-  Filter: string;
- 
+  Hospitals: Hospital[] ;
+  showlist = true;
+  hospitalFilter:String;
 
-  
-  constructor(private router : Router, private userCrudService: UserCrudService ,private httpClient: HttpClient)  {
-    this.userCrudService.searchHospital().subscribe(res => {
-      console.log(res)
-      this.Hospitals = res;
-    }); 
-  }
+
+  constructor(private router : Router, private userCrudService: UserCrudService ,private httpClient: HttpClient)  { }
 
   ngOnInit(): void {
     const user = localStorage.getItem('User')
@@ -39,12 +35,25 @@ export class GreetPage implements OnInit {
   }
 
   ionViewDidEnter() {
+    this.showlist = true;
     this.userCrudService.getHospitals().subscribe((response) => {
       this.Hospitals = response;
+      console.log(this.Hospitals);
     })
   }
-  
+  searchHospitals(){
+    this.userCrudService.searchHospital(this.hospitalFilter)
+    .subscribe((response:Hospital[]) =>{
+      this.Hospitals = response;
+      console.log(this.Hospitals);
+    })
+  }
+  onCancel(event){
+    this.showlist =true;
 
-
+  }
+  onClear(event){
+    this.showlist =true;
+  }
 
 }
