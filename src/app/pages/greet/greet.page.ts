@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnyTxtRecord } from 'dns';
-import { response } from 'express';
 import { Hospital, UserCrudService } from '../../services/user-crud.service';
 
 @Component({
@@ -55,5 +53,9 @@ export class GreetPage implements OnInit {
   onClear(event){
     this.showlist =true;
   }
+
+  
+
+
 
 }
